@@ -15,32 +15,24 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import util.DbUtil;
-import vo.Colmena;
+import vo.Recolector;
 
 public class RecolectorDAO
 {
     private Connection connection;
 
-    public ColmenaDAO()
+    public RecolectorDAO()
     {
         connection = DbUtil.getConnection();
     }
 
-    public void addUser(Colmena user)
+    public void addUser(Recolector user)
     {
         try
         {
             PreparedStatement preparedStatement = connection.prepareStatement("insert into colmena(nombre) values (?)");
-            preparedStatement.setInt(1, user.getIdColMadre());
-            preparedStatement.setInt(2, user.getIdApiario());
-            preparedStatement.setInt(3, user.getCantidad());
-            preparedStatement.setString(4, user.getCalidad());
-            preparedStatement.setString(5, user.getReina());
-            preparedStatement.setInt(6, user.getProMiel());
-            preparedStatement.setInt(7, user.getPanAlimento());
-            preparedStatement.setInt(8, user.getPanCera());
-            preparedStatement.setInt(9, user.getPanCria());
-            preparedStatement.setInt(10, user.getPanVacio());
+            preparedStatement.setString(1, user.getNombre());
+            preparedStatement.setString(2, user.getFabrica());
             preparedStatement.executeUpdate();
         }
         catch (SQLException e)
@@ -63,22 +55,13 @@ public class RecolectorDAO
         }
     }
 
-    public void updateUser(Colmena user)
+    public void updateUser(Recolector user)
     {
         try 
         {
             PreparedStatement preparedStatement = connection.prepareStatement("update colmena set nombre=?" + "where idCol=?");
-            preparedStatement.setInt(1, user.getIdColMadre());
-            preparedStatement.setInt(2, user.getIdApiario());
-            preparedStatement.setInt(2, user.getIdSede());
-            preparedStatement.setInt(3, user.getCantidad());
-            preparedStatement.setString(4, user.getCalidad());
-            preparedStatement.setString(5, user.getReina());
-            preparedStatement.setInt(6, user.getProMiel());
-            preparedStatement.setInt(7, user.getPanAlimento());
-            preparedStatement.setInt(8, user.getPanCera());
-            preparedStatement.setInt(9, user.getPanCria());
-            preparedStatement.setInt(10, user.getPanVacio());
+            preparedStatement.setString(1, user.getNombre());
+            preparedStatement.setString(2, user.getFabrica());
             preparedStatement.executeUpdate();
         }
         catch (SQLException e)
@@ -87,9 +70,9 @@ public class RecolectorDAO
         }
     }
 
-    public List<Colmena> getAllUsers()
+    public List<Recolector> getAllUsers()
     {
-        List<Colmena> users = new ArrayList<Colmena>();
+        List<Recolector> users = new ArrayList<Recolector>();
         
         try
         {
@@ -99,17 +82,9 @@ public class RecolectorDAO
             
             while (rs.next())
             {
-                Colmena user = new Colmena();
-                user.setIdColMadre(rs.getInt("idColMadre"));
-                user.setIdApiario(rs.getInt("idApiario"));
-                user.setCantidad(rs.getInt("cantidad"));
-                user.setCalidad(rs.getString("calidad"));
-                user.setReina(rs.getString("reina"));
-                user.setIdApiario(rs.getInt("proMiel"));
-                user.setIdApiario(rs.getInt("panAlimento"));
-                user.setIdApiario(rs.getInt("panCera"));
-                user.setIdApiario(rs.getInt("panCria"));
-                user.setIdApiario(rs.getInt("panVacio"));
+                Recolector user = new Recolector();
+                user.setNombre(rs.getString("calidad"));
+                user.setFabrica(rs.getString("reina"));
                 users.add(user);
             }
         }
@@ -120,9 +95,9 @@ public class RecolectorDAO
         return users;
     }
 
-    public Colmena getUserById(int idCol)
+    public Recolector getUserById(int idCol)
     {
-        Colmena user = new Colmena();
+        Recolector user = new Recolector();
         
         try
         {
@@ -132,16 +107,8 @@ public class RecolectorDAO
             
             if (rs.next())
             {
-                user.setIdColMadre(rs.getInt("idColMadre"));
-                user.setIdApiario(rs.getInt("idApiario"));
-                user.setCantidad(rs.getInt("cantidad"));
-                user.setCalidad(rs.getString("calidad"));
-                user.setReina(rs.getString("reina"));
-                user.setIdApiario(rs.getInt("proMiel"));
-                user.setIdApiario(rs.getInt("panAlimento"));
-                user.setIdApiario(rs.getInt("panCera"));
-                user.setIdApiario(rs.getInt("panCria"));
-                user.setIdApiario(rs.getInt("panVacio"));
+                user.setNombre(rs.getString("calidad"));
+                user.setFabrica(rs.getString("reina"));
             }
         }
         catch (SQLException e)
