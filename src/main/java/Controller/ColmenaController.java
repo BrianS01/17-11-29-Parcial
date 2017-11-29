@@ -5,9 +5,7 @@
  *  Credential ::: SIST0008-G01:SIV
  */
 
-package Controller;
-
-import VO.*;
+package controller;
 
 /**
  *

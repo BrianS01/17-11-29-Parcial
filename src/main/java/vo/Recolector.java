@@ -5,12 +5,12 @@
  *  Credential ::: SIST0008-G01:SIV
  */
 
-package VO;
+package vo;
 
 /**
  *
  * @author BRIAN
  */
-public class Recoleccion {
+public class Recolector {
     
 }

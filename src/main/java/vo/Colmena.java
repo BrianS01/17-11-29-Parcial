@@ -5,7 +5,7 @@
  *  Credential ::: SIST0008-G01:SIV
  */
 
-package VO;
+package vo;
 
 /**
  *

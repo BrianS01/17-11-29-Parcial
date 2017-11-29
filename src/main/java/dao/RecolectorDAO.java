@@ -5,12 +5,12 @@
  *  Credential ::: SIST0008-G01:SIV
  */
 
-package controller;
+package dao;
 
 /**
  *
  * @author BRIAN
  */
-public class ApiarioController {
+public class RecolectorDAO {
     
 }

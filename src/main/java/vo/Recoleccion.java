@@ -5,14 +5,12 @@
  *  Credential ::: SIST0008-G01:SIV
  */
 
-package DAO;
-
-import VO.*;
+package vo;
 
 /**
  *
  * @author BRIAN
  */
-public class RecolectorDAO {
+public class Recoleccion {
     
 }

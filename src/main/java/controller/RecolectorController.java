@@ -5,12 +5,12 @@
  *  Credential ::: SIST0008-G01:SIV
  */
 
-package VO;
+package controller;
 
 /**
  *
  * @author BRIAN
  */
-public class Apiario {
+public class RecolectorController {
     
 }

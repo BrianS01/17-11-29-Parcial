@@ -5,14 +5,12 @@
  *  Credential ::: SIST0008-G01:SIV
  */
 
-package Controller;
-
-import VO.*;
+package dao;
 
 /**
  *
  * @author BRIAN
  */
-public class RecolectorController {
+public class ColmenaDAO {
     
 }

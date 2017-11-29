@@ -5,14 +5,12 @@
  *  Credential ::: SIST0008-G01:SIV
  */
 
-package DAO;
-
-import VO.*;
+package controller;
 
 /**
  *
  * @author BRIAN
  */
-public class ColmenaDAO {
+public class ApiarioController {
     
 }
