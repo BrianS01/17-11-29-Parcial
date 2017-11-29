@@ -31,7 +31,7 @@ public class SedeDAO
     {
         try
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into sede(idSede) values (?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into sede(nombre) values (?)");
             preparedStatement.setString(1, user.getNombre());
             preparedStatement.executeUpdate();
         }
@@ -41,12 +41,12 @@ public class SedeDAO
         }
     }
 
-    public void deleteUser(int idApiario)
+    public void deleteUser(int idSede)
     {
         try
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("delete from sede where idApiario=?");
-            preparedStatement.setInt(1, idApiario);
+            PreparedStatement preparedStatement = connection.prepareStatement("delete from sede where idSede=?");
+            preparedStatement.setInt(1, idSede);
             preparedStatement.executeUpdate();
         }
         catch (SQLException e)
@@ -59,7 +59,7 @@ public class SedeDAO
     {
         try 
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("update sede set idSede=?" + "where idApiario=?");
+            PreparedStatement preparedStatement = connection.prepareStatement("update sede set nombre=?" + "where idSede=?");
             preparedStatement.setString(1, user.getNombre());
             preparedStatement.executeUpdate();
         }
@@ -78,10 +78,11 @@ public class SedeDAO
             System.out.println("Llegue hasta aca");
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery("select * from sede");
+            
             while (rs.next())
             {
                 Sede user = new Sede();
-                user.setNombre(rs.getString("idApiario"));
+                user.setNombre(rs.getString("idSede"));
                 users.add(user);
             }
         }
@@ -92,17 +93,19 @@ public class SedeDAO
         return users;
     }
 
-    public Sede getUserById(int idApiario)
+    public Sede getUserById(int idSede)
     {
         Sede user = new Sede();
+        
         try
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from sede where idApiario=?");
-            preparedStatement.setInt(1, idApiario);
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from sede where idSede=?");
+            preparedStatement.setInt(1, idSede);
             ResultSet rs = preparedStatement.executeQuery();
+            
             if (rs.next())
             {
-                user.setNombre(rs.getString("idApiario"));
+                user.setNombre(rs.getString("idSede"));
             }
         }
         catch (SQLException e)

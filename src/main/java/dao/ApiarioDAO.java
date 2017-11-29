@@ -31,7 +31,7 @@ public class ApiarioDAO
     {
         try
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into sede(idSede) values (?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into apiario(idSede) values (?)");
             preparedStatement.setInt(1, user.getIdSede());
             preparedStatement.executeUpdate();
         }
@@ -45,7 +45,7 @@ public class ApiarioDAO
     {
         try
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("delete from sede where idApiario=?");
+            PreparedStatement preparedStatement = connection.prepareStatement("delete from apiario where idApiario=?");
             preparedStatement.setInt(1, idApiario);
             preparedStatement.executeUpdate();
         }
@@ -59,7 +59,7 @@ public class ApiarioDAO
     {
         try 
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("update sede set idSede=?" + "where idApiario=?");
+            PreparedStatement preparedStatement = connection.prepareStatement("update apiario set idSede=?" + "where idApiario=?");
             preparedStatement.setInt(1, user.getIdSede());
             preparedStatement.executeUpdate();
         }
@@ -72,16 +72,17 @@ public class ApiarioDAO
     public List<Apiario> getAllUsers()
     {
         List<Apiario> users = new ArrayList<Apiario>();
+        
         try
         {
             System.out.println("Llegue hasta aca");
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("select * from sede");
+            ResultSet rs = statement.executeQuery("select * from apiario");
+            
             while (rs.next())
             {
                 Apiario user = new Apiario();
-                user.setIdApiario(rs.getInt("idApiario"));
-                user.setIdSede(rs.getInt("idApiario"));
+                user.setIdSede(rs.getInt("idSede"));
                 users.add(user);
             }
         }
@@ -95,15 +96,16 @@ public class ApiarioDAO
     public Apiario getUserById(int idApiario)
     {
         Apiario user = new Apiario();
+        
         try
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from sede where idApiario=?");
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from apiario where idApiario=?");
             preparedStatement.setInt(1, idApiario);
             ResultSet rs = preparedStatement.executeQuery();
+            
             if (rs.next())
             {
-                user.setIdApiario(rs.getInt("idApiario"));
-                user.setIdSede(rs.getInt("idApiario"));
+                user.setIdSede(rs.getInt("idSede"));
             }
         }
         catch (SQLException e)

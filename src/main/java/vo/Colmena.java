@@ -18,9 +18,9 @@ public class Colmena
     private int idColMadre;
     private int idApiario;
     private int idSede;
-    private String cantidad;
+    private int cantidad;
     private String calidad;
-    private int reina;
+    private String reina;
     private int proMiel;
     private int panAlimento;
     private int panCera;
@@ -59,11 +59,11 @@ public class Colmena
         this.idSede = idSede;
     }
 
-    public String getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(String cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -75,11 +75,11 @@ public class Colmena
         this.calidad = calidad;
     }
 
-    public int getReina() {
+    public String getReina() {
         return reina;
     }
 
-    public void setReina(int reina) {
+    public void setReina(String reina) {
         this.reina = reina;
     }
 
@@ -124,8 +124,7 @@ public class Colmena
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Colmena{" + "idCol=" + idCol + ", idColMadre=" + idColMadre + ", idApiario=" + idApiario + ", idSede=" + idSede + ", cantidad=" + cantidad + ", calidad=" + calidad + ", reina=" + reina + ", proMiel=" + proMiel + ", panAlimento=" + panAlimento + ", panCera=" + panCera + ", panCria=" + panCria + ", panVacio=" + panVacio + '}';
     }
 }
